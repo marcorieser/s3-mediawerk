@@ -22,7 +22,14 @@ mix.postCss('resources/css/tailwind.css', 'public/css', [
 if(!mix.inProduction()){
     mix.browserSync({
         proxy: 'https://s3-mediawerk.test',
-        https: true
+        https: true,
+        files: [
+            'resources/**/*.antlers.html',
+            'resources/**/*.blade.php',
+            'content/**/*.md',
+            'public/js/*.js',
+            'public/css/*.css'
+        ]
     })
 }
 
