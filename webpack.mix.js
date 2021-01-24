@@ -19,6 +19,13 @@ mix.postCss('resources/css/tailwind.css', 'public/css', [
     require('postcss-preset-env')({stage: 0})
 ])
 
+if(!mix.inProduction()){
+    mix.browserSync({
+        proxy: 'https://s3-mediawerk.test',
+        https: true
+    })
+}
+
 if (mix.inProduction()) {
    mix.version();
 }
